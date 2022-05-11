@@ -8,7 +8,6 @@ const InfoCard = ({ img, bgcolor, heding, otherText }) => {
             <div class="card-body text-white">
                 <h2 class="card-title">{heding}</h2>
                 <p className=''>{otherText}</p>
-
             </div>
         </div >
     );
