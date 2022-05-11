@@ -8,19 +8,22 @@ const Testimonial = () => {
     const reviews = [
         {
             _id: 1,
-            name: 'Winson Herry',
+            location: 'caliifonia'
+            , name: 'Winson Herry',
             review: '',
             img: people1
         },
         {
             _id: 2,
-            name: 'Winson Herry',
+            location: 'caliifonia'
+            , name: 'Winson Herry',
             review: '',
             img: people2
         },
         {
             _id: 3,
-            name: 'Winson Herry',
+            location: 'caliifonia'
+            , name: 'Winson Herry',
             review: '',
             img: people3
         },
@@ -36,7 +39,7 @@ const Testimonial = () => {
                     <img className='w-24 lg:w-48' src={quote} alt="" />
                 </div>
             </div>
-            <div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {reviews.map(review => <Review key={review._id} review={review}></Review>)}
             </div>
 
