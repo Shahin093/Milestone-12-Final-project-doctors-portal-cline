@@ -3,11 +3,9 @@ import { DayPicker } from 'react-day-picker';
 import chair from '../../assets/images/chair.png';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
-const AppointmentBanner = () => {
-    const [selected, setSelected] = useState(new Date());
+const AppointmentBanner = ({ date, setDate }) => {
     let footer = <p>Please pick a day.</p>;
-    if (selected) {
-        footer = <p>You picked {format(selected, 'PP')}.</p>;
+    if (date) {
     }
     return (
         <div class="hero min-h-screen">
@@ -16,8 +14,8 @@ const AppointmentBanner = () => {
                 <div>
                     <DayPicker
                         mode="single"
-                        selected={selected}
-                        onSelect={setSelected}
+                        selected={date}
+                        onSelect={setDate}
                         footer={footer}
                     />
                 </div>
