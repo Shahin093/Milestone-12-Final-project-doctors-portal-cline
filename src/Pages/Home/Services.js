@@ -38,12 +38,12 @@ const Services = () => {
                 }
             </div>
             <div className=''>
-                <div class="hero min-h-screen bg-base-200">
-                    <div class="hero-content flex-col lg:flex-row gap-10">
+                <div className="hero min-h-screen bg-base-200">
+                    <div className="hero-content flex-col lg:flex-row gap-10">
                         <img width="458px" height='5760px' src={treatment} />
                         <div className=''>
-                            <h1 class="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
-                            <p class="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. the pont of using Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatum, blanditiis iusto nobis nam tempore nisi aperiam unde rem alias pariatur doloribus cumque, ut aliquam?</p>
+                            <h1 className="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
+                            <p className="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. the pont of using Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatum, blanditiis iusto nobis nam tempore nisi aperiam unde rem alias pariatur doloribus cumque, ut aliquam?</p>
                             <GetStartedBtn></GetStartedBtn>
                         </div>
                     </div>
