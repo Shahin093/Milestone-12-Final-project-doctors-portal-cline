@@ -7,7 +7,8 @@ import Login from './Pages/Login/Login';
 import RequiredAuth from './Pages/Login/RequiredAuth';
 import SignUp from './Pages/Login/SignUp';
 import Navbar from './Pages/Shared/Navbar';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
@@ -27,6 +28,7 @@ function App() {
         </Route>
         {/* <Route path='*' ></Route> */}
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
