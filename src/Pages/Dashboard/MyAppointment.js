@@ -1,0 +1,49 @@
+import React, { useState, useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+const MyAppointment = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+    const [appointment, setAppointment] = useState([]);
+    useEffect(() => {
+        if (user) {
+            fetch(`http://localhost:5000/booking?patient=${user.email}`)
+                .then(res => res.json())
+                .then(data => setAppointment(data));
+        }
+    }, [user]);
+
+    return (
+        <div>
+            <h2>My Appointments : {appointment.length}</h2>
+
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    {/* <!-- head --> */}
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Treatment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            appointment.map((apoint, index) => <tr>
+                                <th>{index + 1}</th>
+                                <td>{apoint.patientName}</td>
+                                <td>{apoint.date}</td>
+                                <td>{apoint.slot}</td>
+                                <td>{apoint.treatmentName}</td>
+                            </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    );
+};
+
+export default MyAppointment;

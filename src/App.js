@@ -9,6 +9,10 @@ import SignUp from './Pages/Login/SignUp';
 import Navbar from './Pages/Shared/Navbar';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyAppointment from './Pages/Dashboard/MyAppointment';
+import Review from './Pages/Dashboard/Review';
+// import Review from './Pages/Home/Review';
 function App() {
   return (
     <div className='max-w-7xl mx-auto px-12'>
@@ -25,6 +29,16 @@ function App() {
             <Appointment></Appointment>
           </RequiredAuth>
         }>
+        </Route>
+        <Route
+          path='dashboard'
+          element={
+            <RequiredAuth>
+              <Dashboard></Dashboard>
+            </RequiredAuth>
+          }>
+          <Route index element={<MyAppointment></MyAppointment>}></Route>
+          <Route path='review' element={<Review></Review>}></Route>
         </Route>
         {/* <Route path='*' ></Route> */}
       </Routes>
