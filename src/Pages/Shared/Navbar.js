@@ -8,6 +8,7 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     }
     const menuItems =
         //niser dike cursor niye jawar jnno :  kothao carsor rekhe ( ctrl+alt)+downArrow .

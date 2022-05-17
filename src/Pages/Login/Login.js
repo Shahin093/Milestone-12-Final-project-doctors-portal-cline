@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 const Login = () => {
     let navigate = useNavigate();
     let location = useLocation();
@@ -19,12 +20,26 @@ const Login = () => {
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-    let signInError;
 
-    if (user || gUser) {
-        navigate(from, { replace: true });
+    const onSubmit = (data) => {
+        console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
 
     }
+
+    let signInError;
+
+    const [token] = useToken(user || gUser);
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+        // if (user || gUser) {
+        //     navigate(from, { replace: true });
+        // }
+
+    }, [token, from, navigate])
+
 
     if (gLoading || loading) {
         return <Loading></Loading>
@@ -33,13 +48,6 @@ const Login = () => {
     if (gError || error) {
         signInError = <p className='text-red-500'><small>{gError?.message || error?.message}</small></p>
     }
-
-    const onSubmit = (data) => {
-        console.log(data);
-        signInWithEmailAndPassword(data.email, data.password);
-    }
-
-
 
 
     return (

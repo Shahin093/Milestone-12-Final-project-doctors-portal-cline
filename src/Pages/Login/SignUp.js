@@ -16,17 +16,22 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-
     const [token] = useToken(gUser || user);
 
+    // if (user || gUser) {
+    //     navigate('/appointment');
+    // }
+    if (token) {
+        navigate('/appointment');
+    }
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     let signInError;
     if (gLoading || loading || updating) {
         return <Loading></Loading>
     }
 
-    if (gUser || user) {
-    }
+
 
     if (gError || error || uError) {
         signInError = <p className='text-red-500'><small>{gError?.message || error?.message}</small></p>
@@ -37,7 +42,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         console.log('update done');
-        navigate('/appointment');
+        // navigate('/appointment');
 
     }
 
