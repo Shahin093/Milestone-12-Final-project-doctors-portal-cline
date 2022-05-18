@@ -4,7 +4,7 @@ import chair from '../../assets/images/chair.png';
 import 'react-day-picker/dist/style.css';
 import { format } from 'date-fns';
 const AppointmentBanner = ({ date, setDate }) => {
-    let footer = <p>Please pick a day.</p>;
+    let footer = <p>Please pick a day .</p>;
     if (date) {
     }
     return (
@@ -21,6 +21,8 @@ const AppointmentBanner = ({ date, setDate }) => {
                 </div>
             </div>
         </div>
+
+
     );
 };
 
