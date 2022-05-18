@@ -15,6 +15,7 @@ import Review from './Pages/Dashboard/Review';
 import User from './Pages/Dashboard/User';
 import RequiredAdmin from './Pages/Login/RequiredAdmin';
 import AddDoctor from './Pages/Dashboard/AddDoctor';
+import ManageDoctor from './Pages/Dashboard/ManageDoctor';
 // import Review from './Pages/Home/Review';
 function App() {
   return (
@@ -53,6 +54,13 @@ function App() {
             {
               <RequiredAdmin>
                 <AddDoctor></AddDoctor>
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route path='manageDoctor' element=
+            {
+              <RequiredAdmin>
+                <ManageDoctor></ManageDoctor>
               </RequiredAdmin>
             }
           ></Route>
