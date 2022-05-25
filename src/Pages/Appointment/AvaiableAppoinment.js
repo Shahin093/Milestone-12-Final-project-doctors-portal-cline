@@ -15,6 +15,8 @@ const AvaiableAppoinment = ({ date }) => {
     //         .then(res => res.json())
     //         .then(data => setServices(data));
     // }, [formattedDate]);
+
+
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
         fetch(`https://murmuring-sea-88663.herokuapp.com/available?date=${formattedDate}`)
             .then(res => res.json())
